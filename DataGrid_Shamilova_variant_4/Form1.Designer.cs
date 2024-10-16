@@ -36,15 +36,23 @@
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewTours = new System.Windows.Forms.DataGridView();
+            this.DirectionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DepartureDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumberOfNightsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostVacationerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumberOfVacationerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WiFiColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SurchargesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCostColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonEdit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.menuStripHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTours)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -62,7 +70,7 @@
             this.справкаToolStripMenuItem});
             this.menuStripHeader.Location = new System.Drawing.Point(0, 0);
             this.menuStripHeader.Name = "menuStripHeader";
-            this.menuStripHeader.Size = new System.Drawing.Size(800, 30);
+            this.menuStripHeader.Size = new System.Drawing.Size(1320, 30);
             this.menuStripHeader.TabIndex = 0;
             this.menuStripHeader.Text = "menuStrip1";
             // 
@@ -108,15 +116,95 @@
             // 
             // dataGridViewTours
             // 
+            this.dataGridViewTours.AllowUserToAddRows = false;
+            this.dataGridViewTours.AllowUserToDeleteRows = false;
             this.dataGridViewTours.BackgroundColor = System.Drawing.Color.MidnightBlue;
             this.dataGridViewTours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTours.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DirectionColumn,
+            this.DepartureDateColumn,
+            this.NumberOfNightsColumn,
+            this.CostVacationerColumn,
+            this.NumberOfVacationerColumn,
+            this.WiFiColumn,
+            this.SurchargesColumn,
+            this.TotalCostColumn});
             this.dataGridViewTours.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewTours.Location = new System.Drawing.Point(0, 30);
+            this.dataGridViewTours.Location = new System.Drawing.Point(0, 57);
             this.dataGridViewTours.Name = "dataGridViewTours";
             this.dataGridViewTours.RowHeadersWidth = 51;
             this.dataGridViewTours.RowTemplate.Height = 24;
-            this.dataGridViewTours.Size = new System.Drawing.Size(800, 420);
+            this.dataGridViewTours.Size = new System.Drawing.Size(1320, 325);
             this.dataGridViewTours.TabIndex = 1;
+            this.dataGridViewTours.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewTours_CellFormatting);
+            // 
+            // DirectionColumn
+            // 
+            this.DirectionColumn.DataPropertyName = "Direction";
+            this.DirectionColumn.HeaderText = "Направление";
+            this.DirectionColumn.MinimumWidth = 6;
+            this.DirectionColumn.Name = "DirectionColumn";
+            this.DirectionColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DirectionColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.DirectionColumn.Width = 125;
+            // 
+            // DepartureDateColumn
+            // 
+            this.DepartureDateColumn.DataPropertyName = "DepartureDate";
+            this.DepartureDateColumn.HeaderText = "Дата вылета";
+            this.DepartureDateColumn.MinimumWidth = 6;
+            this.DepartureDateColumn.Name = "DepartureDateColumn";
+            this.DepartureDateColumn.Width = 125;
+            // 
+            // NumberOfNightsColumn
+            // 
+            this.NumberOfNightsColumn.DataPropertyName = "NumberOfNights";
+            this.NumberOfNightsColumn.HeaderText = "Количество ночей";
+            this.NumberOfNightsColumn.MinimumWidth = 6;
+            this.NumberOfNightsColumn.Name = "NumberOfNightsColumn";
+            this.NumberOfNightsColumn.Width = 125;
+            // 
+            // CostVacationerColumn
+            // 
+            this.CostVacationerColumn.DataPropertyName = "CostVacationer";
+            this.CostVacationerColumn.HeaderText = "Стоимость за отдыхающего";
+            this.CostVacationerColumn.MinimumWidth = 6;
+            this.CostVacationerColumn.Name = "CostVacationerColumn";
+            this.CostVacationerColumn.Width = 125;
+            // 
+            // NumberOfVacationerColumn
+            // 
+            this.NumberOfVacationerColumn.DataPropertyName = "NumberOfVacationer";
+            this.NumberOfVacationerColumn.HeaderText = "Количество отдыющих";
+            this.NumberOfVacationerColumn.MinimumWidth = 6;
+            this.NumberOfVacationerColumn.Name = "NumberOfVacationerColumn";
+            this.NumberOfVacationerColumn.Width = 125;
+            // 
+            // WiFiColumn
+            // 
+            this.WiFiColumn.DataPropertyName = "WiFi";
+            this.WiFiColumn.HeaderText = "Наличие WiFi";
+            this.WiFiColumn.MinimumWidth = 6;
+            this.WiFiColumn.Name = "WiFiColumn";
+            this.WiFiColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.WiFiColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.WiFiColumn.Width = 125;
+            // 
+            // SurchargesColumn
+            // 
+            this.SurchargesColumn.DataPropertyName = "Surcharges";
+            this.SurchargesColumn.HeaderText = "Доплаты (руб)";
+            this.SurchargesColumn.MinimumWidth = 6;
+            this.SurchargesColumn.Name = "SurchargesColumn";
+            this.SurchargesColumn.Width = 125;
+            // 
+            // TotalCostColumn
+            // 
+            this.TotalCostColumn.DataPropertyName = "TotalCost";
+            this.TotalCostColumn.HeaderText = "Общая стоимость";
+            this.TotalCostColumn.MinimumWidth = 6;
+            this.TotalCostColumn.Name = "TotalCostColumn";
+            this.TotalCostColumn.Width = 125;
             // 
             // toolStrip1
             // 
@@ -127,87 +215,91 @@
             this.toolStripLabel2,
             this.toolStripLabel3,
             this.toolStripLabel4});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 419);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 382);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1320, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(111, 28);
+            this.toolStripLabel1.Size = new System.Drawing.Size(111, 22);
             this.toolStripLabel1.Text = "toolStripLabel1";
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(111, 28);
+            this.toolStripLabel2.Size = new System.Drawing.Size(111, 22);
             this.toolStripLabel2.Text = "toolStripLabel2";
             // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(111, 28);
+            this.toolStripLabel3.Size = new System.Drawing.Size(111, 22);
             this.toolStripLabel3.Text = "toolStripLabel3";
             // 
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(111, 28);
+            this.toolStripLabel4.Size = new System.Drawing.Size(111, 22);
             this.toolStripLabel4.Text = "toolStripLabel4";
             // 
             // toolStrip2
             // 
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3});
+            this.toolStripButtonAdd,
+            this.toolStripButtonEdit,
+            this.toolStripButtonDelete});
             this.toolStrip2.Location = new System.Drawing.Point(0, 30);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(800, 31);
+            this.toolStrip2.Size = new System.Drawing.Size(1320, 27);
             this.toolStrip2.TabIndex = 3;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // toolStripButton1
+            // toolStripButtonAdd
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::DataGrid_Shamilova_variant_4.Properties.Resources.add;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 28);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButtonAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonAdd.Image = global::DataGrid_Shamilova_variant_4.Properties.Resources.add;
+            this.toolStripButtonAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAdd.Name = "toolStripButtonAdd";
+            this.toolStripButtonAdd.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButtonAdd.Text = "toolStripButton1";
+            this.toolStripButtonAdd.Click += new System.EventHandler(this.toolStripButtonAdd_Click);
             // 
-            // toolStripButton2
+            // toolStripButtonEdit
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::DataGrid_Shamilova_variant_4.Properties.Resources.edit;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(29, 28);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButtonEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonEdit.Image = global::DataGrid_Shamilova_variant_4.Properties.Resources.edit;
+            this.toolStripButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEdit.Name = "toolStripButtonEdit";
+            this.toolStripButtonEdit.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButtonEdit.Text = "toolStripButton2";
+            this.toolStripButtonEdit.Click += new System.EventHandler(this.toolStripButtonEdit_Click);
             // 
-            // toolStripButton3
+            // toolStripButtonDelete
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::DataGrid_Shamilova_variant_4.Properties.Resources.delete;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(29, 28);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.toolStripButtonDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonDelete.Image = global::DataGrid_Shamilova_variant_4.Properties.Resources.delete;
+            this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDelete.Name = "toolStripButtonDelete";
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButtonDelete.Text = "toolStripButton3";
+            this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1320, 407);
+            this.Controls.Add(this.dataGridViewTours);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.dataGridViewTours);
             this.Controls.Add(this.menuStripHeader);
             this.MainMenuStrip = this.menuStripHeader;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Горящие туры";
             this.menuStripHeader.ResumeLayout(false);
             this.menuStripHeader.PerformLayout();
@@ -237,9 +329,17 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAdd;
+        private System.Windows.Forms.ToolStripButton toolStripButtonEdit;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DirectionColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DepartureDateColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumberOfNightsColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostVacationerColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumberOfVacationerColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WiFiColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SurchargesColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCostColumn;
     }
 }
 
